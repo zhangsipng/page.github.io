@@ -138,7 +138,7 @@ $(document).ready(function () {
     offset: -scssMastheadHeight,
     preventDefault: false,
   });
-function initBibTeX() {
+/*function initBibTeX() {
     const bibtexLinks = document.querySelectorAll('.show-bibtex');
     
     bibtexLinks.forEach(link => {
@@ -163,5 +163,5 @@ function initBibTeX() {
   }
 
   // Initialize BibTeX functionality
-  initBibTeX();
+  initBibTeX();*/
 });
