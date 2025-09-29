@@ -95,11 +95,14 @@
 
   img {
     max-width: 175px;
+    width: 175px; /* 添加固定宽度 */
+    height: 175px; 
     border-radius: 50%;
 
     @include breakpoint($large) {
       padding: 5px;
       border: 1px solid var(--global-border-color);
+      object-fit: cover; 
     }
   }
 }
