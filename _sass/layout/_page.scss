@@ -419,7 +419,7 @@
 }
 
 .publication-links {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .publication-links a {
@@ -472,15 +472,15 @@
   }
 
   .publication-authors {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
     color: #555;
     line-height: 1.4;
   }
 
   .publication-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
     line-height: 1.4;
 
     strong {
@@ -499,7 +499,7 @@
     color: #4A90E2;
     text-decoration: none;
     font-weight: normal;
-    margin-left: 0.5rem;
+    
 
     &:hover {
       text-decoration: underline;
@@ -507,10 +507,10 @@
   }
 
   .publication-venue {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #666;
     font-style: italic;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
   }
 
   /* Remove default list styling */
