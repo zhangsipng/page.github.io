@@ -129,42 +129,46 @@ author_profile: true
   {% include base_path %}
   
   <div class="publications-list">
-    {% assign recent_publications = site.publications | where_exp: "post", "post.date >= 2020" | sort: "date" | reverse %}
-    {% for post in recent_publications %}
-      <div class="publication-item">
-        <!-- 标题 -->
-        <div class="publication-title">
-          <strong>{{ post.title }}</strong>
-          {% if post.presentation_type %}
-            <span class="presentation-type">({{ post.presentation_type }})</span>
-          {% endif %}
+    <!-- 使用更兼容的方法筛选2020年及以后的论文 -->
+    {% assign all_publications = site.publications | sort: "date" | reverse %}
+    {% for post in all_publications %}
+      {% assign post_year = post.date | date: "%Y" | plus: 0 %}
+      {% if post_year >= 2020 %}
+        <div class="publication-item">
+          <!-- 标题 -->
+          <div class="publication-title">
+            <strong>{{ post.title }}</strong>
+            {% if post.presentation_type %}
+              <span class="presentation-type">({{ post.presentation_type }})</span>
+            {% endif %}
+          </div>
+          
+          <!-- 作者 -->
+          <div class="publication-authors">{{ post.authors }}</div>
+          
+          <!-- 期刊/会议 -->
+          <div class="publication-venue">
+            {% if post.venue %}
+              {{ post.venue }}, {{ post.date | default: "1900-01-01" | date: "%Y" }}
+            {% endif %}
+          </div>
+          
+          <!-- 链接 -->
+          <div class="publication-links">
+            {% if post.paperurl %}
+              [<a href="{{ post.paperurl }}" target="_blank" class="pdf-link">Paper</a>]
+            {% endif %}
+            {% if post.bibtex %}
+              [<a href="#" class="show-bibtex" data-bibtex="{{ post.bibtex | replace: '"', '&quot;' | escape }}">BibTeX</a>]
+            {% endif %}
+          </div>
+          
+          <!-- BibTeX 内容区域 -->
+          <div class="bibtex-content" style="display: none;">
+            <pre style="margin: 0; white-space: pre-wrap; font-family: 'Courier New', monospace;"></pre>
+          </div>
         </div>
-        
-        <!-- 作者 -->
-        <div class="publication-authors">{{ post.authors }}</div>
-        
-        <!-- 期刊/会议 -->
-        <div class="publication-venue">
-          {% if post.venue %}
-            {{ post.venue }}, {{ post.date | default: "1900-01-01" | date: "%Y" }}
-          {% endif %}
-        </div>
-        
-        <!-- 链接 -->
-        <div class="publication-links">
-          {% if post.paperurl %}
-            [<a href="{{ post.paperurl }}" target="_blank" class="pdf-link">Paper</a>]
-          {% endif %}
-          {% if post.bibtex %}
-            [<a href="#" class="show-bibtex" data-bibtex="{{ post.bibtex | replace: '"', '&quot;' | escape }}">BibTeX</a>]
-          {% endif %}
-        </div>
-        
-        <!-- BibTeX 内容区域 -->
-        <div class="bibtex-content" style="display: none;">
-          <pre style="margin: 0; white-space: pre-wrap; font-family: 'Courier New', monospace;"></pre>
-        </div>
-      </div>
+      {% endif %}
     {% endfor %}
   </div>
 </div>
