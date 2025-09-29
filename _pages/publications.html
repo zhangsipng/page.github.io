@@ -27,18 +27,21 @@ author_profile: true
     list-style: none;
     position: relative;
     line-height: 1.3;
+    padding-left: 20px; /* 为点符号留出空间 */
   }
-    .publication-item::before {
+  .publication-item:last-child {
+    border-bottom: none;
+  }
+  /* 添加点符号 */
+  .publication-item::before {
     content: "•";
     position: absolute;
     left: 0;
     top: 0;
     color: #4A90E2;
     font-weight: bold;
-    font-size: 1.2em;
-  }
-  .publication-item:last-child {
-    border-bottom: none;
+    font-size: 1.4em;
+    line-height: 1.3;
   }
   .publication-authors {
     font-size: 1rem;
