@@ -120,6 +120,8 @@ author_profile: true
     word-wrap: break-word;
   }
 </style>
+
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // 处理 BibTeX 显示
@@ -143,6 +145,8 @@ author_profile: true
     });
   });
 </script>
+
+
 
 <div class="publications-page">
   <h1 class="publications-header">Publications</h1>
@@ -182,13 +186,13 @@ author_profile: true
                   [<a href="{{ post.paperurl }}" target="_blank" class="pdf-link">Paper</a>]
                 {% endif %}
                 {% if post.bibtex %}
-                  [<a href="#" class="show-bibtex" data-bibtex="{{ post.bibtex | replace: '"', '&quot;' }}">BibTeX</a>]
+                  [<a href="#" class="show-bibtex" data-bibtex="{{ post.bibtex | replace: '"', '&quot;' | escape }}">BibTeX</a>]
                 {% endif %}
               </div>
               
               <!-- BibTeX 内容区域 -->
-              <div class="bibtex-content">
-                <pre></pre>
+              <div class="bibtex-content" style="display: none; background: #f5f5f5; padding: 10px; margin-top: 10px; border-radius: 5px;">
+                <pre style="margin: 0; white-space: pre-wrap; font-family: 'Courier New', monospace;"></pre>
               </div>
             </div>
           {% endfor %}
