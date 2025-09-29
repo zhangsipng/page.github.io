@@ -122,41 +122,35 @@ author_profile: true
 </style>
 
 <script>
-// 确保在页面完全加载后执行
-(function() {
-  function initBibTeX() {
-    // 处理 BibTeX 显示
-    var bibtexLinks = document.querySelectorAll('.show-bibtex');
-    for (var i = 0; i < bibtexLinks.length; i++) {
-      var link = bibtexLinks[i];
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        var bibtexContent = this.getAttribute('data-bibtex');
-        var bibtexDiv = this.parentNode.parentNode.querySelector('.bibtex-content');
-        var pre = bibtexDiv.querySelector('pre');
-        
-        if (bibtexDiv.style.display === 'none' || bibtexDiv.style.display === '') {
-          pre.textContent = bibtexContent;
-          bibtexDiv.style.display = 'block';
-          this.textContent = '[Hide BibTeX]';
-        } else {
-          bibtexDiv.style.display = 'none';
-          this.textContent = '[BibTeX]';
-        }
-      });
+// BibTeX 功能
+function initBibTeX() {
+    var links = document.querySelectorAll('.show-bibtex');
+    for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            var content = this.getAttribute('data-bibtex');
+            var item = this.closest('.archive__item');
+            var div = item.querySelector('.bibtex-content');
+            var pre = div.querySelector('pre');
+            
+            if (div.style.display === 'none' || !div.style.display) {
+                pre.textContent = content;
+                div.style.display = 'block';
+                this.textContent = '[Hide BibTeX]';
+            } else {
+                div.style.display = 'none';
+                this.textContent = '[BibTeX]';
+            }
+        });
     }
-  }
-  
-  // 多种方式确保代码执行
-  if (document.readyState === 'loading') {
+}
+
+// 页面加载完成后初始化
+if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initBibTeX);
-  } else {
+} else {
     initBibTeX();
-  }
-  
-  // 备用方案：延迟执行
-  setTimeout(initBibTeX, 100);
-})();
+}
 </script>
 
 
