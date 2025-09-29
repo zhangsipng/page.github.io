@@ -122,27 +122,41 @@ author_profile: true
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // 处理 BibTeX 显示
-  const bibtexLinks = document.querySelectorAll('.show-bibtex');
-  bibtexLinks.forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const bibtexContent = this.getAttribute('data-bibtex');
-      const bibtexDiv = this.parentNode.parentNode.querySelector('.bibtex-content');
-      const pre = bibtexDiv.querySelector('pre');
-      
-      if (bibtexDiv.style.display === 'none' || bibtexDiv.style.display === '') {
-        pre.textContent = bibtexContent;
-        bibtexDiv.style.display = 'block';
-        this.textContent = '[Hide BibTeX]';
-      } else {
-        bibtexDiv.style.display = 'none';
-        this.textContent = '[BibTeX]';
-      }
-    });
-  });
-});
+// 确保在页面完全加载后执行
+(function() {
+  function initBibTeX() {
+    // 处理 BibTeX 显示
+    var bibtexLinks = document.querySelectorAll('.show-bibtex');
+    for (var i = 0; i < bibtexLinks.length; i++) {
+      var link = bibtexLinks[i];
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var bibtexContent = this.getAttribute('data-bibtex');
+        var bibtexDiv = this.parentNode.parentNode.querySelector('.bibtex-content');
+        var pre = bibtexDiv.querySelector('pre');
+        
+        if (bibtexDiv.style.display === 'none' || bibtexDiv.style.display === '') {
+          pre.textContent = bibtexContent;
+          bibtexDiv.style.display = 'block';
+          this.textContent = '[Hide BibTeX]';
+        } else {
+          bibtexDiv.style.display = 'none';
+          this.textContent = '[BibTeX]';
+        }
+      });
+    }
+  }
+  
+  // 多种方式确保代码执行
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBibTeX);
+  } else {
+    initBibTeX();
+  }
+  
+  // 备用方案：延迟执行
+  setTimeout(initBibTeX, 100);
+})();
 </script>
 
 
