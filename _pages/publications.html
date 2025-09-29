@@ -121,37 +121,6 @@ author_profile: true
   }
 </style>
 
-<script>
-// 简化的BibTeX功能
-function initBibTeX() {
-    var links = document.querySelectorAll('.show-bibtex');
-    for (var i = 0; i < links.length; i++) {
-        links[i].addEventListener('click', function(e) {
-            e.preventDefault();
-            var content = this.getAttribute('data-bibtex');
-            var item = this.closest('.archive__item');
-            var div = item.querySelector('.bibtex-content');
-            var pre = div.querySelector('pre');
-            
-            if (div.style.display === 'none' || !div.style.display) {
-                pre.textContent = content;
-                div.style.display = 'block';
-                this.textContent = '[Hide BibTeX]';
-            } else {
-                div.style.display = 'none';
-                this.textContent = '[BibTeX]';
-            }
-        });
-    }
-}
-
-// 安全初始化
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initBibTeX);
-} else {
-    initBibTeX();
-}
-</script>
 
 <div class="publications-page">
   <h1 class="publications-header">Publications</h1>
