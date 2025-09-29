@@ -139,11 +139,11 @@ author_profile: true
   {% include base_path %}
   
   <div class="publications-list">
-    <!-- 使用更兼容的方法筛选2020年及以后的论文 -->
+    <!-- 使用更兼容的方法筛选2022年及以后的论文 -->
     {% assign all_publications = site.publications | sort: "date" | reverse %}
     {% for post in all_publications %}
       {% assign post_year = post.date | date: "%Y" | plus: 0 %}
-      {% if post_year >= 2020 %}
+      {% if post_year >= 2022 %}
         <div class="publication-item">
           <!-- 标题 -->
           <div class="publication-title">
