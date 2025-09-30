@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-Chao Liang received the Ph.D. degree from the National Lab of Pattern Recognition (NLPR), Institute of Automation, Chinese Academy of Sciences (CASIA), in 2012. He is currently a Professor with the National Engineering Research Center for Multimedia Software (NERCMS), School of Computer Science, Wuhan University. His research interests include multimedia content analysis and retrieval, computer vision, and pattern recognition. He won the Best Paper Award of PCM 2014, Best New Comer in VBS 2023, and the first place in NIST TRECVID INS 2021, AVS 2023, and DVU 2023 tasks.
+I am a Professor with the National Engineering Research Center for Multimedia Software (NERCMS), School of Computer Science, Wuhan University. My research interests include computer vision, pattern recognition and multimedia.
 
 News
 ==
