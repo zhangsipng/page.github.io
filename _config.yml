@@ -29,11 +29,11 @@ author:
   pronouns         : # example: "she/her"  
   #location         : "Wuhan,China"
   employer         : "Professor"
-  workplace1        : "School of Computer Science"
-  workplace2        : "National Engineering Center for Multimedia Software"
-  school            : "Wuhan University"
-  office            : "South 606 ,Undergraduate Building"
-  email            : "cliang AT whu.edu.cn" 
+  workplace1        : "NERCMS,School of Computer Science"
+  workplace2        : "Wuhan University"
+  #school            : "Wuhan University"
+  office            : "Office South 606 ,Undergraduate Building"
+  email            : "Email: cliang AT whu.edu.cn" 
 
   # Academic websites
   academia         : # URL
