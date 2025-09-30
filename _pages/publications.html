@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Publications"
+#title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
@@ -106,6 +106,14 @@ author_profile: true
     white-space: pre-wrap;
     word-wrap: break-word;
   }
+
+  .publications-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 </style>
 
 <script>
@@ -132,10 +140,10 @@ author_profile: true
 </script>
 
 <div class="publications-page">
-  <h1 class="publications-header">Publications</h1>
-  {% if site.author.googlescholar %}
-      <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-  {% endif %}
+   <div class="publications-container">
+            <h1 class="publications-header">Recent Publications</h1>
+            <div class="wordwrap">You can also find my articles on <a href="#">my Google Scholar profile</a>.</div>
+    </div>
   {% include base_path %}
   
   <div class="publications-list">
