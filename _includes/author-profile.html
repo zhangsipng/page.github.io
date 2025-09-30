@@ -17,7 +17,7 @@
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
     {% if author.pronouns %}<p class="author__pronouns">{{ author.pronouns }}</p>{% endif %}
-    {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
+    {% if author.bio %}<p class="author__bio"></p>{% endif %}
   </div>
 
   <div class="author__urls-wrapper">
@@ -30,13 +30,23 @@
       {% if author.employer %}
         <li class="author__desktop">{{ author.employer }}</li>
       {% endif %}
-      {% if author.uri %}
-        <li><a href="{{ author.uri }}"><i class="fas fa-fw " aria-hidden="true"></i>{{ site.data.ui-text[site.locale].website_label | default: "Website" }}</a></li>
+      {% if author.workplace1 %}
+        <li class="author__desktop">{{ author.workplace1 }}</li>
+      {% endif %}
+      {% if author.workplace2 %}
+        <li class="author__desktop">{{ author.workplace2 }}</li>
+      {% endif %}
+      {% if author.school %}
+        <li class="author__desktop">{{ author.school }}</li>
+      {% endif %}
+      <p></p>
+      {% if author.office %}
+        <li class="author__desktop">{{ author.office }}</li>
       {% endif %}
       {% if author.email %}
         <li>{{author.email}}</li>
       {% endif %}
-
+       <p></p>
       <!-- Font Awesome and Academicons icons / Academic websites -->
       {% if author.academia %}
         <li><a href="{{ author.academia }}"><i class="ai ai-academia ai-fw icon-pad-right" aria-hidden="true"></i>Academia</a></li>
@@ -45,7 +55,10 @@
         <li><a href="{{ author.arxiv }}"><i class="ai ai-arxiv ai-fw icon-pad-right"></i>arXiv</a></li>
       {% endif %}      
       {% if author.googlescholar %}
-        <li><a href="{{ author.googlescholar }}"><i class="ai  ai-fw "></i>Google Scholar</a></li>
+        <li><a href="{{ author.googlescholar }}">Google Scholar</a></li>
+      {% endif %}
+      {% if author.DBLP %}
+        <li><a href="{{ author.DBLP }}">DBLP</a></li>
       {% endif %}
       {% if author.semantic %}
         <li><a href="{{ author.semantic }}"><i class="ai ai-semantic-scholar ai-fw icon-pad-right"></i>Semantic Scholar</a></li>
